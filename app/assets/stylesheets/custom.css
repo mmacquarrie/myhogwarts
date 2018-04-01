@@ -1,0 +1,117 @@
+/*
+  gryffindor red: #cb3030
+  slytherin green: #359c35
+  hufflepuff yellow: #e1e34d
+  ravenclaw blue: #7171e1
+
+ */
+
+/* INTERFACE */
+nav.navbar{
+  background-color: #000;
+}
+
+*{
+  font-family: 'Roboto Mono', monospace;
+}
+
+.btn-main{
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-main:hover{
+  color: #fff;
+}
+
+.container{
+  margin-top: 10px;
+}
+
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+footer{
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+.banner{
+  height: 2.5px;
+}
+
+.banner .g{
+  background-color: #cb3030;
+}
+
+.banner .r{
+  background-color: #7171e1;
+}
+
+.banner .s{
+  background-color: #359c35;
+}
+
+.banner .h{
+  background-color: #e1e34d;
+}
+/* ICONOGRAPHY */
+#brand-logo{
+  height: 30px;
+  width: 30px;
+}
+
+.house-icon{
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 30px;
+  width: 30px;
+}
+
+.gryffindor-icon{
+  background-image: url("/assets/gryffindor_logo.png");
+}
+
+.slytherin-icon{
+  background-image: url("/assets/slytherin_logo.png");
+}
+
+.ravenclaw-icon{
+  background-image: url("/assets/ravenclaw_logo.png");
+  height: 32.5px;
+  width: 32.5px;
+}
+
+.hufflepuff-icon{
+  background-image: url("/assets/hufflepuff_logo.png");
+}
+
+/* UTILITY CLASSES */
+.hide-me{
+  display:none;
+}
+
+/* HOME PAGE */
+#home-jumbotron{
+  background-image: url('/assets/hogwarts_castle.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-bottom: 0;
+}
+
+#home-jumbotron p, #home-jumbotron h1{
+  color: #fff;
+}
+
+/* STUDENTS */
+
+.radio-image{
+  height: 150px;
+  width: auto;
+}
