@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Professors</h2>
+      <table class="table sortable">
+        <thead>
+          <tr>
+            <th scope="col">House</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col" class="sorttable_nosort">View</th>
+            <th scope="col" class="sorttable_nosort">Edit</th>
+            <th scope="col" class="sorttable_nosort">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @professors.each do |professor| %>
+          <tr>
+            <td>
+              <div class='<%= professor.house.downcase %>-icon house-icon'></div>
+              <span class="hide-me"><%= professor.house.downcase %></span>
+            </td>
+            <td><%= professor.first_name %></td>
+            <td><%= professor.last_name %></td>
+            <td><%= link_to("View", professor_path(professor)) %></td>
+            <td><%= link_to("Edit", edit_professor_path(professor)) %></td>
+            <td><%= link_to("Delete", professor_path(professor), method:
+                :delete, data: {confirm: "Are you sure you want to delete this professor?"} ) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to("Add New", new_professor_path(), class: 'btn btn-main') %>
+  </div>
+</div>

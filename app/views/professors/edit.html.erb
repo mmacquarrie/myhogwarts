@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Modify </h2>
+      <%= form_for(@professor) do |form| %>
+        <div class="form-row">
+          <div class="col-md-6">
+            <%= form.text_field :first_name, {:class => 'form-control', :placeholder => 'First name'} %>
+          </div>
+          <div class="col-md-6">
+            <%= form.text_field :last_name, {:class => 'form-control', :placeholder => 'Last name'} %>
+          </div>
+        </div>
+        <h3>House</h3>
+        <div class="form-group">
+          <%= form.radio_button :house, "Gryffindor", :checked => true %>
+          <label><img src="<%=image_url('gryffindor_logo.png')%>" class='radio-image'></label>
+          <%= form.radio_button :house, "Hufflepuff" %>
+          <label><img src="<%=image_url('hufflepuff_logo.png')%>" class='radio-image'></label>
+          <%= form.radio_button :house, "Ravenclaw" %>
+          <label><img src="<%=image_url('ravenclaw_logo.png')%>" class='radio-image'></label>
+          <%= form.radio_button :house, "Slytherin" %>
+          <label><img src="<%=image_url('slytherin_logo.png')%>" class='radio-image'></label>
+        </div>
+        <%= form.submit 'Submit', :class => 'btn btn-main' %>
+      <% end %>
+    </div>
+  </div>
+</div>

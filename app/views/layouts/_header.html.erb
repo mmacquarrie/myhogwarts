@@ -26,7 +26,9 @@
         <a class="nav-link" href=""> Classes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=""> Staff</a>
+        <%=link_to(professors_path(), class: "nav-link") do %>
+          Professors
+        <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href=""> Registration</a>
