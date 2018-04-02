@@ -8,78 +8,31 @@
             <th scope="col">House</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
-            <th scope="col">Year</th>
             <th scope="col" class="sorttable_nosort">View</th>
+            <th scope="col" class="sorttable_nosort">Edit</th>
+            <th scope="col" class="sorttable_nosort">Delete</th>
           </tr>
         </thead>
         <tbody>
+          <% @students.each do |student| %>
           <tr>
             <td>
-              <div class='gryffindor-icon house-icon'></div>
-              <span class="hide-me">Gryffindor</span>
+              <div class='<%= student.house.downcase %>-icon house-icon'></div>
+              <span class="hide-me"><%= student.house.downcase %></span>
             </td>
-            <td>Harry</td>
-            <td>Potter</td>
-            <td>3</td>
-            <td>Link</td>
+            <td><%= student.first_name %></td>
+            <td><%= student.last_name %></td>
+            <td><%= link_to("View", student_path(student)) %></td>
+            <td><%= link_to("Edit", edit_student_path(student)) %></td>
+            <td><%= link_to("Delete", student_path(student), method:
+                :delete, data: {confirm: "Are you sure you want to delete this student?"} ) %></td>
           </tr>
-          <tr>
-            <td>
-              <div class='gryffindor-icon house-icon'></div>
-              <span class="hide-me">Gryffindor</span>
-            </td>
-            <td>Hermione</td>
-            <td>Granger</td>
-            <td>3</td>
-            <td>Link</td>
-          </tr>
-          <tr>
-            <td>
-              <div class='gryffindor-icon house-icon'></div>
-              <span class="hide-me">Gryffindor</span>
-            </td>
-            <td>Ron</td>
-            <td>Weasley</td>
-            <td>3</td>
-            <td>Link</td>
-          </tr>
-          <tr>
-            <td>
-              <div class='slytherin-icon house-icon'></div>
-              <span class="hide-me">Slytherin</span>
-            </td>
-            <td>Draco</td>
-            <td>Malfoy</td>
-            <td>3</td>
-            <td>Link</td>
-          </tr>
-          <tr>
-            <td>
-              <div class='ravenclaw-icon house-icon'></div>
-              <span class="hide-me">Ravenclaw</span>
-            </td>
-            <td>Luna</td>
-            <td>Lovegood</td>
-            <td>2</td>
-            <td>Link</td>
-          </tr>
-          <tr>
-            <td>
-              <div class='hufflepuff-icon house-icon'></div>
-              <span class="hide-me">Hufflepuff</span>
-            </td>
-            <td>Cedric</td>
-            <td>Diggory</td>
-            <td>5</td>
-            <td>Link</td>
-          </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 col-sm-3 mr-auto ml-auto">
-      <a href='new_student.html' class='btn btn-main'>Add new</a>
-    </div>
+    <%= link_to("Add New", new_student_path(), class: 'btn btn-main') %>
   </div>
 </div>

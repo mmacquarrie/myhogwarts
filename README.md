@@ -1,3 +1,3 @@
 # my.Hogwarts
 
-A course registration system for Database Driven Websites’ final project.
+A course registration system for my Database Driven Websites’ final project.

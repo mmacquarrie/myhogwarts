@@ -115,3 +115,9 @@ footer{
   height: 150px;
   width: auto;
 }
+
+.profile-logo{
+  height: 200px;
+  width: auto;
+  float:right;
+}
