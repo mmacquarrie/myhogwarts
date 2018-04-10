@@ -20,7 +20,9 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=""> Courses</a>
+        <%=link_to(courses_path(), class: "nav-link") do %>
+          Courses
+        <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href=""> Classes</a>

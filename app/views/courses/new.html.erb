@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>New Course </h2>
+      <%= form_for :course, local: true, url: {action: "create"} do |form| %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="form-row">
+          <div class="col-md-6">
+            <%= form.text_field :course_name, {:class => 'form-control', :placeholder => 'Name'} %>
+          </div>
+          <div class="col-md-6">
+            <%= form.text_field :section, {:class => 'form-control', :placeholder => 'Section'} %>
+          </div>
+        </div>
+        <%= form.select(:subject, @subjects )%>
+
+        <%= collection_select @course, :id, (Course.all), :id, :course_name, :prompt => true%>
+        <%= form.submit 'Submit', :class => 'btn btn-main' %>
+      <% end %>
+    </div>
+  </div>
+</div>

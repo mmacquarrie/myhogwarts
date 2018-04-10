@@ -22,6 +22,10 @@
           <%= form.radio_button :house, "Slytherin" %>
           <label><img src="<%=image_url('slytherin_logo.png')%>" class='radio-image'></label>
         </div>
+
+        <!--<h3>Past Courses</h3>
+        <%= collection_select @course, :id, (Course.all), :id, :course_name %>
+        -->
         <%= form.submit 'Submit', :class => 'btn btn-main' %>
       <% end %>
     </div>

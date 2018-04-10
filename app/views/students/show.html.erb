@@ -12,7 +12,9 @@
 
       <h4>Past Courses:</h4>
       <ul>
-        <li>TBD</li>
+        <% @student.courses.each() do |course|  %>
+         <li><%= course.course_name %></li>
+        <%end %>
       </ul>
     </div>
   </div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Courses</h2>
+      <table class="table sortable">
+        <thead>
+          <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Prerequisites</th>
+            <th scope="col" class="sorttable_nosort">Current Offerings</th>
+            <th>View</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @courses.each do |course| %>
+          <tr>
+            <td><%= course.subject %>-<%= course.section %></td>
+            <td><%= course.course_name %></td>
+            <td></td>
+            <td></td>
+            <td><%= link_to("View", course_path(course)) %></td>
+            <td><%= link_to("Delete", course_path(course), method:
+                :delete, data: {confirm: "Are you sure you want to delete this course?"} ) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to("Add New", new_course_path(), class: 'btn btn-main') %>
+  </div>
+</div>

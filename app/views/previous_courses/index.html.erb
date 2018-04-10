@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Past Courses</h2>
+      <table class="table sortable">
+        <thead>
+          <tr>
+            <th scope="col">Course</th>
+            <th scope="col">Student</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @previous_courses.each do |prev_course| %>
+          <tr>
+            <td><%= prev_course.course.course_name %></td>
+            <td><%= prev_course.student.first_name  %> <%= prev_course.student.last_name  %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to("Add New", new_previous_course_path(), class: 'btn btn-main') %>
+  </div>
+</div>

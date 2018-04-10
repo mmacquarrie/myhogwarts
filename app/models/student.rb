@@ -1,2 +1,10 @@
-class Student < ApplicationRecord
+class Student < ActiveRecord::Base
+  has_many :previous_courses, dependent: :destroy, :foreign_key => "student_id"
+	has_many :courses, through: :previous_courses
+
+
+  #https://gist.github.com/randyleighton/fbc20356d12fac68e4f3
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
