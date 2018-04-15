@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Rooms</h2>
+      <table class="table sortable">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Capacity</th>
+            <th scope="col" class="sorttable_nosort">Edit</th>
+            <th scope="col" class="sorttable_nosort">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.name %></td>
+            <td><%= room.capacity %></td>
+            <td><%= link_to("Edit", edit_room_path(room)) %></td>
+            <td><%= link_to("Delete", room_path(room), method:
+                :delete, data: {confirm: "Are you sure you want to delete this room?"} ) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to("Add New", new_room_path(), class: 'btn btn-main') %>
+  </div>
+</div>

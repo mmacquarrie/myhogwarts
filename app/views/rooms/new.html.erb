@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>New Room </h2>
+      <%= form_for :room, local: true, url: {action: "create"} do |form| %>
+        <div class="form-row">
+          <div class="col-md-6">
+            <%= form.text_field :name, {:class => 'form-control', :placeholder => 'Name'} %>
+            <%= form.number_field :capacity, {:class => 'form-control'} %>
+            <%= submit_tag %>
+          </div>
+          <div class="col-md-6">
+
+          </div>
+
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
