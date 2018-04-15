@@ -7,6 +7,7 @@
           <tr>
             <th scope="col">Course</th>
             <th scope="col">Student</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -14,6 +15,8 @@
           <tr>
             <td><%= prev_course.course.course_name %></td>
             <td><%= prev_course.student.first_name  %> <%= prev_course.student.last_name  %></td>
+            <td><%= link_to("Delete", previous_course_path(prev_course), method:
+                :delete, data: {confirm: "Are you sure you want to delete this record?"} ) %></td>
           </tr>
           <% end %>
         </tbody>

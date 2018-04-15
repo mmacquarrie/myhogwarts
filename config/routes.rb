@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'previous_courses/addPastCourseToStudent', to: 'students#addPastCourseToStudent'
+  post 'students/addPastCourseToStudent', to: 'students#addPastCourseToStudent'
   resources :prerequisites
   resources :previous_courses
   resources :courses

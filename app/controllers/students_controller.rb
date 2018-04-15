@@ -43,6 +43,6 @@ class StudentsController < ApplicationController
     @course  = Course.find_by_id(params[:course_id])
 		@student.courses << @course
 		@student.save()
-    redirect_to(previous_courses_path())
+    redirect_to(student_path(@student))
   end
 end
