@@ -13,8 +13,8 @@
           </div>
         </div>
         <%= form.select(:subject, @subjects )%>
-
-        <%= collection_select @course, :id, (Course.all), :id, :course_name, :prompt => true%>
+        <%= hidden_field_tag :parent_course_id%>
+        <!-- add prereqs here like w/ previous courses-->
         <%= form.submit 'Submit', :class => 'btn btn-main' %>
       <% end %>
     </div>

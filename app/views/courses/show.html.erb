@@ -2,10 +2,27 @@
   <div class="row">
     <div class="col-md-5">
       <h2><%= @course.course_name %></h2>
-      <h3><%= @course.subject %></h3>
+      <h3><%= @course.subject %>-<%= @course.section %></h3>
     </div>
 
     <h4>Prerequisites: </h4>
+    <ul>
+      <% @course.requirements.each() do |req|  %>
+       <li><%= req.course_name %></li>
+      <%end %>
+    </ul>
+
+    <!--
+    Dropdown list of possible prerequisites.
+    Limited to: courses in the current subject.
+    Exclude: existing prerequisites, current course, advanced courses (section # > this one)
+    -->
+    <form action="addPrerequisite" method="POST">
+      <%= hidden_field_tag :course_id, @course.id %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= collection_select @prereq, :prereq_id, (Course.where(subject: @course.subject) - Course.where(id: @course.id) - Course.where("section > ?", @course.section) - @course.requirements ), :id, :course_name, {:include_blank => 'Select Prerequisite'} %>
+      <input type="submit" class="btn btn-main" name="add-prerequisite-course" value="Add Prerequisite">
+    </form>
     <ul>
     </ul>
   </div>

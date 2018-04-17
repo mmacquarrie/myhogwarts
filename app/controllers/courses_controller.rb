@@ -11,12 +11,12 @@ class CoursesController < ApplicationController
 	def create
 		@course = Course.new(article_params())
     @course.save()
-    #call add prerequisite with params
 		redirect_to(courses_path() )
 	end
 
 	def show
 		@course = Course.find(params[:id])
+    @prereqs = @course.requirements
 	end
 
 	def index
@@ -30,8 +30,9 @@ class CoursesController < ApplicationController
 	def update
 		@course = Course.find(params[:id])
 		@course.update(article_params())
-		redirect_to @course
+		redirect_to(courses_path() )
 	end
+
 	def destroy
 		@course = Course.find(params[:id])
 		@course.destroy()
@@ -39,13 +40,14 @@ class CoursesController < ApplicationController
 	end
 
   def article_params
-    params.require(:course).permit(:course_name, :section, :subject)
+    params.require(:course).permit(:course_name, :section, :subject, :parent_course_id)
   end
 
-  #def addPrerequisite()
-		#@student = Student.find_by_student_name(params[:student_name])
-    #@prereq  = Course.find(params[:id])
-		#@student.courses << @prereq
-		#@student.save()
-	#end
+  def addPrerequisite
+    @course = Course.find_by_id(params[:course_id])
+    @prereq = Course.find_by_id(params[:prereq_id])
+    @prereq.parent_course = @course
+    @prereq.save()
+    redirect_to(course_path(@course))
+	end
 end

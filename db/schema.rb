@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415235808) do
+ActiveRecord::Schema.define(version: 20180417151752) do
 
-  create_table "courses", force: :cascade do |t|
-    t.text "course_name"
-    t.integer "section"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "subject"
-  end
+# Could not dump table "courses" because of following StandardError
+#   Unknown type '' for column 'parent_course_id'
 
   create_table "prerequisites", force: :cascade do |t|
     t.integer "course_id"

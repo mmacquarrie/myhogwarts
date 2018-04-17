@@ -7,9 +7,9 @@
           <tr>
             <th scope="col">Code</th>
             <th scope="col">Name</th>
-            <th scope="col">Prerequisites</th>
             <th scope="col" class="sorttable_nosort">Current Offerings</th>
             <th>View</th>
+            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -19,8 +19,8 @@
             <td><%= course.subject %>-<%= course.section %></td>
             <td><%= course.course_name %></td>
             <td></td>
-            <td></td>
             <td><%= link_to("View", course_path(course)) %></td>
+            <td><%= link_to("Edit", edit_course_path(course)) %></td>
             <td><%= link_to("Delete", course_path(course), method:
                 :delete, data: {confirm: "Are you sure you want to delete this course?"} ) %></td>
           </tr>
