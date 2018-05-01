@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Registration</h2>
+      <form method="post" action="intermediateRegistration">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <h3>Select a student</h3>
+        <%= collection_select @student, :id, (Student.all), :id, :full_name %>
+        <!-- don't show courses they're already registered for -->
+        <input type="submit" class="btn btn-main" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>

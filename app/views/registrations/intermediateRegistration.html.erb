@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <img src="<%= image_url('%s_logo.png' % [@student.house.downcase])%>" class="profile-logo">
+    </div>
+    <div class="col-md-5">
+      <h2><%= @student.full_name %></h2>
+      <h4>Registered For:</h4>
+      <ul>
+        <% @current_classes.each() do |current_class|  %>
+         <li><%= current_class.course.course_name %></li>
+        <%end %>
+      </ul>
+
+      <h4>Past Courses:</h4>
+      <ul>
+        <% @past_courses.each() do |course|  %>
+         <li><%= course.course_name %></li>
+        <%end %>
+      </ul>
+
+      <h4>Classes <%= @student.first_name%> can register for: </h4>
+      <form action="registerStudentForCourse" method="POST">
+        <%= hidden_field_tag :student_id, @student.id %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <ul>
+          <% @available_classes.each() do |available_class|  %>
+           <li><%= available_class.course.course_name %></li>
+          <%end %>
+        </ul>
+        <input type="submit" class="btn btn-main" name="add-previous-course" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>

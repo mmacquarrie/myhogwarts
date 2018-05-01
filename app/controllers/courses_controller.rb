@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :setup_subjects
 
   def setup_subjects
-    @subjects = ["TRNSF", "POTION", "CHARM", "DATDA", "HIST", "CARE", "ASTRO", "ARITH"]
+    @subjects = ["TRNSF", "POTION", "CHARM", "DATDA", "HIST", "ASTRO", "CARE", "ARITH", "DIV", "MUGST", "RUNES", "ALCH", "SEM", "PREP", "THEORY"]
   end
 
   def new

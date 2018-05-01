@@ -25,7 +25,9 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=""> Classes</a>
+        <%=link_to(hogwarts_classes_path(), class: "nav-link") do %>
+          Classes
+        <% end %>
       </li>
       <li class="nav-item">
         <%=link_to(professors_path(), class: "nav-link") do %>
@@ -33,7 +35,9 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=""> Registration</a>
+        <%=link_to(registrations_path(), class: "nav-link") do %>
+          Registration
+        <% end %>
       </li>
     </ul>
   </div>

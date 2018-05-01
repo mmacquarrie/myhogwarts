@@ -45,4 +45,11 @@ class StudentsController < ApplicationController
 		@student.save()
     redirect_to(student_path(@student))
   end
+
+  def registerStudentForCourse()
+		@student = Student.find_by_student_name(params[:student_name])
+    @class  = HogwartsClass.find(params[:id])
+		@student.classes << @class
+		@student.save()
+	end
 end

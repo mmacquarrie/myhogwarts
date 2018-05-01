@@ -7,7 +7,9 @@
       <h2><%= @professor.first_name %> <%= @professor.last_name %></h2>
       <h4>Currently Teaching:</h4>
       <ul>
-        <li>TBD</li>
+        <% @professor.hogwarts_classes.each() do |hogwarts_class|  %>
+         <li><%= hogwarts_class.course.course_name %></li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Classes</h2>
+      <table class="table sortable">
+        <thead>
+          <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col" class="sorttable_nosort">Professor</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @classes.each do |course| %>
+          <tr>
+            <td><%= course.term %> <%= course.course.subject %>-<%= course.course.section %>-<%= course.section %></td>
+            <td><%= course.course.course_name %></td>
+            <td><%= course.professor.first_name %> <%= course.professor.last_name %></td>
+            <td><%= link_to("View", hogwarts_class_path(course)) %></td>
+            <td><%= link_to("Edit", edit_hogwarts_class_path(course)) %></td>
+            <td><%= link_to("Delete", hogwarts_class_path(course), method:
+                :delete, data: {confirm: "Are you sure you want to delete this class?"} ) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to("Add New", new_hogwarts_class_path(), class: 'btn btn-main') %>
+  </div>
+</div>
