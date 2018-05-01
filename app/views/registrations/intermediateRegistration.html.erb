@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-5">
       <h2><%= @student.full_name %></h2>
-      <h4>Registered For:</h4>
+      <h4>Currently Enrolled:</h4>
       <ul>
         <% @current_classes.each() do |current_class|  %>
          <li><%= current_class.course.course_name %></li>
@@ -19,15 +19,12 @@
         <%end %>
       </ul>
 
-      <h4>Classes <%= @student.first_name%> can register for: </h4>
       <form action="registerStudentForCourse" method="POST">
         <%= hidden_field_tag :student_id, @student.id %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <ul>
-          <% @available_classes.each() do |available_class|  %>
-           <li><%= available_class.course.course_name %></li>
-          <%end %>
-        </ul>
+        <h4>Register <%= @student.first_name%> for: </h4>
+        <%= select("hogwarts_class", "hogwarts_class_id", @available_classes.collect {|c| [ c.course.course_name, c.id ] }, { include_blank: false })%>
+        </br>
         <input type="submit" class="btn btn-main" name="add-previous-course" value="Submit">
       </form>
     </div>

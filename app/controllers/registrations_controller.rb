@@ -5,7 +5,9 @@ class RegistrationsController < ApplicationController
   end
 
   def intermediateRegistration
-    @student = Student.find(params[:id])
+    if !@student
+      @student = Student.find(params[:id])
+    end
     @past_courses = @student.courses
     @current_classes = @student.hogwarts_classes
 
@@ -21,13 +23,13 @@ class RegistrationsController < ApplicationController
       # Determine if student has taken all the prerequisites
       all_req_satisfied = true
       for req in course.requirements
-        if not @past_courses.include? req
+        if @past_courses.include? req
           all_req_satisfied = false
         end
       end
 
       # If you've taken all the prereqs, add to eligible courses
-      if (all_req_satisfied)
+      if (all_req_satisfied) or (course.requirements.count == 0)
         eligible_courses.push(course)
       end
     end
@@ -43,5 +45,17 @@ class RegistrationsController < ApplicationController
 
     @available_classes = available_classes
     #redirect_to(intermediateRegistration_path())
+  end
+
+  def registerStudentForCourse
+    @student = Student.find(params[:student_id])
+    @class = HogwartsClass.find(params[:hogwarts_class][:hogwarts_class_id])
+    @student.hogwarts_classes << @class
+
+    redirect_to(registrations_path())
+  end
+
+  def success
+
   end
 end
