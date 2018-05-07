@@ -45,5 +45,6 @@ class HogwartsClassesController < ApplicationController
 
   def show
     @hogwarts_class = HogwartsClass.find(params[:id])
+    @enrolled = @hogwarts_class.students
   end
 end

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h2>Classes</h2>
+    <div class="col-md-12 text-center">
+      <h2>Currently Offered Classes</h2>
       <table class="table sortable">
         <thead>
           <tr>
@@ -27,9 +27,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= link_to("Add New", new_hogwarts_class_path(), class: 'btn btn-main') %>
     </div>
-  </div>
-  <div class="row">
-    <%= link_to("Add New", new_hogwarts_class_path(), class: 'btn btn-main') %>
   </div>
 </div>

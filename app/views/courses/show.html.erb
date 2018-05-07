@@ -2,17 +2,24 @@
   <div class="row">
     <div class="col-md-12">
       <h2><%= @course.subject %>-<%= @course.section %> <%= @course.course_name %></h2>
-      <h4>Prerequisites: </h4>
-      <ul>
-        <% @course.requirements.each() do |req|  %>
-         <li><%= req.course_name %></li>
-        <% end %>
-      </ul>
+
+      <% if @course.requirements.count > 0 %>
+        <h4>Prerequisites: </h4>
+        <ul>
+          <% @course.requirements.each() do |req|  %>
+           <li><%= req.course_name %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        This course has no prerequisites. Add one below!
+      <% end %>
+      <br/>
       <!--
       Dropdown list of possible prerequisites.
       Limited to: courses in the current subject.
       Exclude: existing prerequisites, current course, advanced courses (section # > this one)
       -->
+      <h4>Add Prerequisite</h4>
       <form action="addPrerequisite" method="POST">
         <%= hidden_field_tag :course_id, @course.id %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

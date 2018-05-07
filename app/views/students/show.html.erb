@@ -4,18 +4,32 @@
       <img src="<%= image_url('%s_logo.png' % [@student.house.downcase])%>" class="profile-logo">
     </div>
     <div class="col-md-5">
-      <h2><%= @student.first_name %> <%= @student.last_name %></h2>
-      <h4>Registered For:</h4>
-      <ul>
-        <li>TBD</li>
-      </ul>
-
-      <h4>Past Courses:</h4>
-      <ul>
-        <% @student.courses.each() do |course|  %>
-         <li><%= course.course_name %></li>
-        <%end %>
-      </ul>
+      <h2><%= @student.full_name %></h2>
+      <% if @student.hogwarts_classes.count > 0 %>
+        <h4>Registered For:</h4>
+        <ul>
+          <% @student.hogwarts_classes.each() do |course|  %>
+           <li><%= course.course.course_name %></li>
+          <%end %>
+        </ul>
+        <% else %>
+          <%= @student.first_name %> is not registered for any classes yet.
+        <% end %>
+        <br/>
+        <br/>
+      <% if @student.courses.count > 0 %>
+        <h4>Past Courses:</h4>
+        <ul>
+          <% @student.courses.each() do |course|  %>
+           <li><%= course.course_name %></li>
+          <%end %>
+        </ul>
+      <% else %>
+        <%= @student.first_name %> has not taken any courses before.
+      <% end %>
+      <br/>
+      <br/>
+      <h5>Add past course</h5>
       <form action="addPastCourseToStudent" method="POST">
         <%= hidden_field_tag :student_id, @student.id %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

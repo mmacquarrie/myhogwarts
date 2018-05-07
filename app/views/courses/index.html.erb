@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h2>Courses</h2>
+    <div class="col-md-12 text-center">
+      <h2>Course Catalog</h2>
       <table class="table sortable">
         <thead>
           <tr>
@@ -33,9 +33,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= link_to("Add New", new_course_path(), class: 'btn btn-main') %>
     </div>
-  </div>
-  <div class="row">
-    <%= link_to("Add New", new_course_path(), class: 'btn btn-main') %>
   </div>
 </div>

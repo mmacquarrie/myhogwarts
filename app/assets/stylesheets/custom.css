@@ -18,6 +18,8 @@ nav.navbar{
 .btn-main{
   background-color: #dc3545;
   color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .btn-main:hover{

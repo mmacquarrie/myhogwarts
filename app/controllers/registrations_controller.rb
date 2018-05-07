@@ -2,6 +2,8 @@ class RegistrationsController < ApplicationController
 
   def index
     @students = Student.all.order('last_name ASC')
+    @count = @students.count
+    @per_row = (@count/3).floor
   end
 
   def show
@@ -39,7 +41,6 @@ class RegistrationsController < ApplicationController
 
       # If you've taken all the prereqs, add to eligible courses
       if (all_req_satisfied) or (course.requirements.count == 0)
-        puts "ELIGIBLE FOR" + course.course_name
         eligible_courses.push(course)
       end
     end
@@ -64,7 +65,7 @@ class RegistrationsController < ApplicationController
     redirect_to(registrations_path())
   end
 
-  def success
+  def deregister
 
   end
 end

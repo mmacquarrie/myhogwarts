@@ -1,14 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h2><%= @hogwarts_class.course.subject %>-<%= @hogwarts_class.course.section %>
+    <div class="col-md-12 text-center">
+      <h2><%= @hogwarts_class.course.subject %>-<%= @hogwarts_class.course.section %>-<%= @hogwarts_class.section %>
         <%= @hogwarts_class.course.course_name %></h2>
+        <h4>Professor: <%= @hogwarts_class.professor.full_name %></h4>
     </div>
   </div>
+  <br/>
   <div class="row">
-    <div class="col-md-12">
-      <h4>Professor: <%= @hogwarts_class.professor.last_name %></h4>
-      <h4>Meeting Times: </h4>
+    <div class="col-md-12 text-center">
+
+      <% if @enrolled.count > 0 %>
+        <h4>Class List</h4>
+        <table class="table">
+          <thead>
+            <th scope="col">Student</th>
+            <th scope="col">De-register</th>
+          </thead>
+          <% @enrolled.each do |student| %>
+          <tr>
+            <td><%= student.full_name %></td>
+            <td><%= student.full_name %></td>
+          </tr>
+          <% end %>
+        </table>
+        <% else %>
+        There are no students registered for this class yet.
+        <% end %>
     </div>
   </div>
 </div>

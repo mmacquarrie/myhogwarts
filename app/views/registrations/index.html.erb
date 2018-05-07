@@ -4,15 +4,17 @@
       <h2>Registration</h2>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <h3>Select a student</h3>
-        <ul>
-        <% @students.each do |student| %>
-          <li>
+        <div class="row">
+        <% @students.in_groups_of(4, false) do |group| %>
+        <div class="col-md-4">
+          <% for student in group %>
             <%=link_to(registration_path(student), class: "nav-link") do %>
               <%= student.full_name %>
             <% end %>
-          </li>
+          <% end %>
+        </div>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </div>
