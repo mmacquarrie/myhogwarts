@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :registrations
-  post 'intermediateRegistration', to: 'registrations#intermediateRegistration'
-  get 'intermediateRegistration' => 'registrations#intermediateRegistration'
-  post 'registerStudentForCourse', to: 'registrations#registerStudentForCourse'
+  post 'registrations/registerStudentForCourse', to: 'registrations#registerStudentForCourse'
+  post 'studentRegistration', to: 'registrations#studentRegistration'
   resources :hogwarts_classes
   resources :rooms
   post 'students/addPastCourseToStudent', to: 'students#addPastCourseToStudent'

@@ -3,7 +3,9 @@
     <div class="container">
       <h1 class="display-4">Welcome Back!</h1>
       <p class="lead">
-        <a class="btn btn-main btn-lg" href="#" role="button">Register for classes</a>
+        <%=link_to(registrations_path(), class: "btn btn-main btn-lg") do %>
+          Register for classes
+        <% end %>
       </p>
     </div>
   </div>

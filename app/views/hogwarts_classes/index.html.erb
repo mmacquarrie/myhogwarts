@@ -16,7 +16,7 @@
         <tbody>
           <% @classes.each do |course| %>
           <tr>
-            <td><%= course.term %> <%= course.course.subject %>-<%= course.course.section %>-<%= course.section %></td>
+            <td><%= course.course.subject %>-<%= course.course.section %>-<%= course.section %></td>
             <td><%= course.course.course_name %></td>
             <td><%= course.professor.first_name %> <%= course.professor.last_name %></td>
             <td><%= link_to("View", hogwarts_class_path(course)) %></td>
