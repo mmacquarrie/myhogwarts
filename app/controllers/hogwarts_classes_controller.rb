@@ -23,7 +23,7 @@ class HogwartsClassesController < ApplicationController
     @class.course = Course.find_by_id(params[:course_id])
     @class.professor = Professor.find_by_id(params[:professor_id])
     @class.section = params[:section]
-    @class.term = params[:term]
+    @class.section = params[:hogwarts_class][:section]
     @class.save()
     redirect_to(hogwarts_class_path(@class))
 	end
