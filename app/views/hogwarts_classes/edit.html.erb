@@ -4,8 +4,8 @@
       <h2>Modify </h2>
       <%= form_for(@class) do |form| %>
       <div class="form-row">
-        <%= collection_select @course, :course_id, (Course.all), :id, :course_full :course_name, {:include_blank => 'Select Course', :selected => params[:id]} %>
-        <%= collection_select @professor, :professor_id, (Professor.all), :id, :full_name, {:include_blank => 'Select Professor', :selected => @class.professor.id} %>
+        <%= collection_select @course, :course_id, (Course.all), :id, :course_name, {:selected => @class.course.id} %>
+        <%= collection_select @professor, :professor_id, (Professor.all), :id, :full_name, {:selected => @class.professor.id} %>
         <%= form.text_field :section, {:class => 'form-control', :placeholder => @class.section} %>
         <input type="submit" class="btn btn-main" value="Submit">
       </div>
