@@ -69,6 +69,22 @@ footer{
   background-color: #e1e34d;
 }
 
+a:link:not(.btn):not(.navbar-brand):not(.nav-link) {
+    color: #cb3030;
+}
+
+a:visited:not(.btn):not(.navbar-brand):not(.nav-link) {
+    color: #7171e1;
+}
+
+a:hover:not(.btn):not(.navbar-brand):not(.nav-link) {
+    color: #359c35;
+}
+
+a:active:not(.btn):not(.navbar-brand):not(.nav-link) {
+    color: #e1e34d;
+}
+
 /* ICONOGRAPHY */
 #brand-logo{
   height: 30px;

@@ -18,10 +18,6 @@ class RegistrationsController < ApplicationController
     @past_courses = @student.courses
     @current_classes = @student.hogwarts_classes
 
-    puts "CURRENTLY TAKING"
-    for thing in @current_classes
-      puts thing.course.course_name
-    end
     # All classes/courses they're not currently/haven't already taken
     @all_classes = HogwartsClass.all - @current_classes
     @all_courses = Course.all - @past_courses
@@ -62,7 +58,7 @@ class RegistrationsController < ApplicationController
     @class = HogwartsClass.find(params[:hogwarts_class][:hogwarts_class_id])
     @student.hogwarts_classes << @class
 
-    redirect_to(registrations_path())
+    redirect_to(registration_path(@student))
   end
 
   def deregister
