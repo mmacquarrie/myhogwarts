@@ -5,19 +5,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 ml-auto">
+    <div class="col-md-6">
       <h4>Currently Enrolled:</h4>
       <ul>
         <% @current_classes.each() do |current_class|  %>
-         <li><%= current_class.course.course_name %></li>
+         <li><%=link_to(hogwarts_class_path(current_class)) do %>
+             <%= current_class.course.course_name %>
+           <% end %></li>
         <%end %>
       </ul>
     </div>
-    <div class="col-md-4 mr-auto">
+    <div class="col-md-6">
       <h4>Past Courses:</h4>
       <ul>
         <% @past_courses.each() do |course|  %>
-         <li><%= course.course_name %></li>
+         <li><%=link_to(course_path(course)) do %>
+               <%= course.course_name %>
+             <% end %></li>
         <%end %>
       </ul>
     </div>

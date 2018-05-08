@@ -1,15 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4">
       <img src="<%= image_url('%s_logo.png' % [@student.house.downcase])%>" class="profile-logo">
     </div>
-    <div class="col-md-5">
+    <div class="col-md-8">
       <h2><%= @student.full_name %></h2>
       <% if @student.hogwarts_classes.count > 0 %>
         <h4>Registered For:</h4>
         <ul>
           <% @student.hogwarts_classes.each() do |course|  %>
-           <li><%= course.course.course_name %></li>
+           <li><%=link_to(hogwarts_class_path(course)) do %>
+               <%= course.course.course_name %>
+             <% end %>
+           </li>
           <%end %>
         </ul>
         <% else %>
@@ -21,7 +24,11 @@
         <h4>Past Courses:</h4>
         <ul>
           <% @student.courses.each() do |course|  %>
-           <li><%= course.course_name %></li>
+           <li>
+             <%=link_to(course_path(course)) do %>
+                  <%= course.course_name %>
+             <% end %>
+            </li>
           <%end %>
         </ul>
       <% else %>
