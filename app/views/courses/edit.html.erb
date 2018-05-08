@@ -5,9 +5,11 @@
       <%= form_for(@course) do |form| %>
         <div class="form-row">
           <div class="col-md-6">
+            <label>Subject: </label>
+            <%= form.select(:subject, @subjects, {:class => 'form-control'}) %>
             <%= form.text_field :course_name, {:class => 'form-control', :placeholder => 'Course Name'} %>
             <%= form.text_field :section, {:class => 'form-control', :placeholder => 'Section'} %>
-            <%= form.select(:subject, @subjects )%>
+            <br/>
             <input type="submit" class="btn btn-main" value="Submit">
           </div>
         </div>

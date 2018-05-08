@@ -4,6 +4,8 @@
       <h2>New Course </h2>
       <%= form_for :course, local: true, url: {action: "create"} do |form| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label>Subject:</label>
+        <%= form.select(:subject, @subjects )%>
         <div class="form-row">
           <div class="col-md-6">
             <%= form.text_field :course_name, {:class => 'form-control', :placeholder => 'Name'} %>
@@ -12,9 +14,8 @@
             <%= form.text_field :section, {:class => 'form-control', :placeholder => 'Section'} %>
           </div>
         </div>
-        <%= form.select(:subject, @subjects )%>
+
         <%= hidden_field_tag :parent_course_id%>
-        <!-- add prereqs here like w/ previous courses-->
         <%= form.submit 'Submit', :class => 'btn btn-main' %>
       <% end %>
     </div>
