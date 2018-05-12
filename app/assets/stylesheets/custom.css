@@ -86,6 +86,14 @@ a:active:not(.btn):not(.navbar-brand):not(.nav-link) {
     color: #e1e34d;
 }
 
+.btn-link{
+  border:none;
+  color: #cb3030;
+}
+.btn-link:hover{
+  color: #359c35;
+}
+
 /* ICONOGRAPHY */
 #brand-logo{
   height: 30px;
