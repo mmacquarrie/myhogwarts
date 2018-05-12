@@ -19,10 +19,15 @@
           </thead>
           <% @enrolled.each do |student| %>
           <tr>
-            <td><%=link_to(student_path(student)) do %>
-                <%= student.full_name %>
-              <% end %></td>
-            <td><%= student.full_name %></td>
+            <td><%=link_to(student_path(student)) do %><%= student.full_name %><% end %></td>
+            <td>
+              <form method="POST" action="deregister">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <%= hidden_field_tag :class_id, @hogwarts_class.id %>
+                <%= hidden_field_tag :student_id, student.id %>
+                <button type='submit' class='btn-link'><i class="fas fa-trash"></i></button>
+              </form>
+          </td>
           </tr>
           <% end %>
         </table>
@@ -35,6 +40,9 @@
         <% end %>
         <%=link_to(hogwarts_classes_path(), class: "btn btn-main") do %>
           Return to courses
+        <% end %>
+        <%=link_to(registrations_path(), class: "btn btn-main") do %>
+          Return to registration
         <% end %>
     </div>
   </div>

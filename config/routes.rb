@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'registrations/registerStudentForCourse', to: 'registrations#registerStudentForCourse'
   post 'studentRegistration', to: 'registrations#studentRegistration'
   resources :hogwarts_classes
+  post 'hogwarts_classes/deregister', to: 'registrations#deregister'
   resources :rooms
   post 'students/addPastCourseToStudent', to: 'students#addPastCourseToStudent'
   resources :prerequisites

@@ -62,6 +62,11 @@ class RegistrationsController < ApplicationController
   end
 
   def deregister
+    @student = Student.find(params[:student_id])
+    @class = HogwartsClass.find(params[:class_id])
 
+		@student.hogwarts_classes.delete(@class)
+		@student.save()
+		redirect_to(hogwarts_class_path(@class))
   end
 end
