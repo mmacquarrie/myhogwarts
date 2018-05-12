@@ -18,11 +18,10 @@
           <tr>
             <td><%= course.course.subject %>-<%= course.course.section %>-<%= course.section %></td>
             <td><%= course.course.course_name %></td>
-            <td><%= course.professor.first_name %> <%= course.professor.last_name %></td>
-            <td><%= link_to("View", hogwarts_class_path(course)) %></td>
-            <td><%= link_to("Edit", edit_hogwarts_class_path(course)) %></td>
-            <td><%= link_to("Delete", hogwarts_class_path(course), method:
-                :delete, data: {confirm: "Are you sure you want to delete this class?"} ) %></td>
+            <td><%= course.professor.full_name %></td>
+            <td><%= link_to hogwarts_class_path(course) do %><i class="fas fa-eye"></i><% end %></td>
+            <td><%= link_to edit_hogwarts_class_path(course) do %><i class="fas fa-edit"></i><% end %></td>
+            <td><%= link_to hogwarts_class_path(course), method: :delete, data:{confirm: "Delete this course?"} do %><i class="fas fa-trash"></i><% end %></td>
           </tr>
           <% end %>
         </tbody>

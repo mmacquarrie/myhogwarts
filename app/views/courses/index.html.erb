@@ -8,9 +8,10 @@
             <th scope="col">Code</th>
             <th scope="col">Name</th>
             <th scope="col" class="sorttable_nosort">Currently Offered</th>
-            <th>View</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th scope="col" class="sorttable_nosort">Prerequisites</th>
+            <th scope="col" class="sorttable_nosort">View</th>
+            <th scope="col" class="sorttable_nosort">Edit</th>
+            <th scope="col" class="sorttable_nosort">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -25,10 +26,16 @@
                 <%= "No" %>
               <% end %>
             </td>
-            <td><%= link_to("View", course_path(course)) %></td>
-            <td><%= link_to("Edit", edit_course_path(course)) %></td>
-            <td><%= link_to("Delete", course_path(course), method:
-                :delete, data: {confirm: "Are you sure you want to delete this course?"} ) %></td>
+            <td>
+              <% if course.requirements.count > 0 %>
+                <%= "Yes" %>
+              <% else %>
+                <%= "No" %>
+              <% end %>
+            </td>
+            <td><%= link_to course_path(course) do %><i class="fas fa-eye"></i><% end %></td>
+            <td><%= link_to edit_course_path(course) do %><i class="fas fa-edit"></i><% end %></td>
+            <td><%= link_to course_path(course), method: :delete, data:{confirm: "Delete this course?"} do %><i class="fas fa-trash"></i><% end %></td>
           </tr>
           <% end %>
         </tbody>
