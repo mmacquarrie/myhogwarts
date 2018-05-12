@@ -18,6 +18,7 @@
         <% else %>
           <%= @student.first_name %> is not registered for any classes yet.
         <% end %>
+        <%= link_to registration_path(@student) do%><div class='btn btn-main'>Register for classes</div><% end %>
         <br/>
         <br/>
       <% if @student.courses.count > 0 %>
